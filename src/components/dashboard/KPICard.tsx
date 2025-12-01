@@ -1,7 +1,20 @@
 // src/components/dashboard/KPICard.tsx
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { LucideIcon, TrendingUp, TrendingDown, Minus } from 'lucide-react';
-import { formatCurrency, cn } from "@/lib/utils"; // Only import, no local duplicate
+import {  cn } from "@/lib/utils"; // Only import, no local duplicate
+
+export const formatCurrency = (value: number): string => {
+  return new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "PHP",
+    minimumFractionDigits: 0,
+  }).format(value);
+};
+
+export const formatNumber = (value: number): string => {
+  return new Intl.NumberFormat("en-US").format(value);
+};
+
 
 interface KPICardProps {
   title: string;
